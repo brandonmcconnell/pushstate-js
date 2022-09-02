@@ -3,7 +3,7 @@
   "description": "**pushstate.js** adds a native way to listen for changes in the address bar, similar to how a `pushstate` event might work (if one existed). It works via an initializer function that sets up a MutationObserver, which fires an `Event` with the properties `previous` and `current` whenever the observer detects changes to the document's `subtree` or `childList` and the URL in the address bar (`window.location.href`) has also changed.",
   "version": "1.0.0",
   "main": "dist/index.js",
-  "dependencies": {
+  "devDependencies": {
     "any-promise": "^1.3.0",
     "anymatch": "^3.1.2",
     "array-union": "^2.1.0",
@@ -84,6 +84,8 @@
     "tr46": "^1.0.1",
     "tree-kill": "^1.2.2",
     "ts-interface-checker": "^0.1.13",
+    "tsup": "^6.2.3",
+    "typescript": "^4.8.2",
     "webidl-conversions": "^4.0.2",
     "whatwg-url": "^7.1.0",
     "which": "^2.0.2",
@@ -91,7 +93,15 @@
     "yaml": "^1.10.2"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"\\033[1;33mNo tests are available for this package\\033[00m\" && exit 0",
+    "build": "tsup index.ts --format cjs,esm"
+  },
+  "exports": {
+    ".": {
+      "default": "./lib/index.js",
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    }
   },
   "repository": {
     "type": "git",
