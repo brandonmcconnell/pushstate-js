@@ -6,12 +6,10 @@ const intiailizePushstateEvent = () => {
     if (newUrl !== currentUrl) {
       const previousUrl = currentUrl;
       currentUrl = newUrl;
-      window.dispatchEvent(new CustomEvent('pushstate', {
-        detail: {
-          previous: previousUrl,
-          current: currentUrl,
-        }
-      }));
+      window.dispatchEvent(new Event('pushstate', {
+        previous: previousUrl,
+        current: currentUrl,
+      } as EventInit));
     }
   });
   observer.observe(document, { subtree: true, childList: true });
