@@ -10,10 +10,14 @@ var intiailizePushstateEvent = () => {
     if (newUrl !== currentUrl) {
       const previousUrl = currentUrl;
       currentUrl = newUrl;
-      window.dispatchEvent(new Event("pushstate", {
+      const event = new Event("pushstate", {
         previous: previousUrl,
         current: currentUrl
-      }));
+      });
+      window.dispatchEvent(event);
+      if (typeof window.onpushstate === "function") {
+        window.onpushstate(event);
+      }
     }
   });
   observer.observe(document, { subtree: true, childList: true });
