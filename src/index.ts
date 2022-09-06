@@ -1,3 +1,9 @@
+declare global {
+  interface Window {
+    onpushstate: Function;
+  }
+}
+
 const intiailizePushstateEvent = () => {
   const getCurrentUrl = () => window?.location?.href ?? '';
   let currentUrl = getCurrentUrl();

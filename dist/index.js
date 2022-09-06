@@ -16,12 +16,12 @@ var __copyProps = (to, from, except, desc) => {
 };
 var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
-// index.ts
-var pushstate_js_exports = {};
-__export(pushstate_js_exports, {
-  default: () => pushstate_js_default
+// src/index.ts
+var src_exports = {};
+__export(src_exports, {
+  default: () => src_default
 });
-module.exports = __toCommonJS(pushstate_js_exports);
+module.exports = __toCommonJS(src_exports);
 var intiailizePushstateEvent = () => {
   const getCurrentUrl = () => {
     var _a;
@@ -45,6 +45,6 @@ var intiailizePushstateEvent = () => {
   });
   observer.observe(document, { subtree: true, childList: true });
 };
-var pushstate_js_default = intiailizePushstateEvent;
+var src_default = intiailizePushstateEvent;
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {});

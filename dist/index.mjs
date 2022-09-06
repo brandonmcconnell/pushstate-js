@@ -1,4 +1,4 @@
-// index.ts
+// src/index.ts
 var intiailizePushstateEvent = () => {
   const getCurrentUrl = () => {
     var _a;
@@ -22,7 +22,7 @@ var intiailizePushstateEvent = () => {
   });
   observer.observe(document, { subtree: true, childList: true });
 };
-var pushstate_js_default = intiailizePushstateEvent;
+var src_default = intiailizePushstateEvent;
 export {
-  pushstate_js_default as default
+  src_default as default
 };
