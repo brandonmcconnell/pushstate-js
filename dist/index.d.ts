@@ -3,5 +3,5 @@ declare global {
         onpushstate: Function;
     }
 }
-declare const intiailizePushstateEvent: () => void;
+declare const intiailizePushstateEvent: (debounceDelay?: number) => void;
 export default intiailizePushstateEvent;
