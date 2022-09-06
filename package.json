@@ -1,7 +1,7 @@
 {
   "name": "pushstate-js",
   "description": "**pushstate.js** adds a native way to listen for changes in the address bar, similar to how a `pushstate` event might work (if one existed). It works via an initializer function that sets up a MutationObserver, which fires an `Event` with the properties `previous` and `current` whenever the observer detects changes to the document's `subtree` or `childList` and the URL in the address bar (`window.location.href`) has also changed.",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "main": "dist/index.js",
   "devDependencies": {
     "tsup": "^6.2.3",
