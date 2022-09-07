@@ -4,17 +4,13 @@ declare global {
   }
 }
 
-const intiailizePushstateEvent = (debounceDelay = 1000) => {
+const initializePushstateEvent = () => {
   const getCurrentUrl = () => window?.location?.href ?? '';
-  let lastRun = -1 * (debounceDelay + 1);
   let currentUrl = getCurrentUrl();
   const observer = new MutationObserver(() => {
-    const currentRun = performance.now();
-    const timeSinceLastRun = currentRun - lastRun;
     const newUrl = getCurrentUrl();
-    if (timeSinceLastRun > debounceDelay || newUrl !== currentUrl) {
+    if (newUrl !== currentUrl) {
       const previousUrl = currentUrl;
-      lastRun = currentRun;
       currentUrl = newUrl;
       const event = new Event('pushstate', {
         previous: previousUrl,
@@ -29,4 +25,4 @@ const intiailizePushstateEvent = (debounceDelay = 1000) => {
   observer.observe(document, { subtree: true, childList: true });
 };
 
-export default intiailizePushstateEvent;
+export default initializePushstateEvent;
