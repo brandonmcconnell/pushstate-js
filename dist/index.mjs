@@ -1,17 +1,14 @@
 // src/index.ts
-var intiailizePushstateEvent = (debounceDelay = 1e3) => {
+var initializePushstateEvent = () => {
   const getCurrentUrl = () => {
     var _a;
     return ((_a = window == null ? void 0 : window.location) == null ? void 0 : _a.href) ?? "";
   };
-  let lastRun = -1 * (debounceDelay + 1);
   let currentUrl = getCurrentUrl();
   const observer = new MutationObserver(() => {
-    let currentRun = performance.now();
-    let newUrl = getCurrentUrl();
-    if (newUrl !== currentUrl && currentRun - lastRun > debounceDelay) {
+    const newUrl = getCurrentUrl();
+    if (newUrl !== currentUrl) {
       const previousUrl = currentUrl;
-      lastRun = currentRun;
       currentUrl = newUrl;
       const event = new Event("pushstate", {
         previous: previousUrl,
@@ -25,7 +22,7 @@ var intiailizePushstateEvent = (debounceDelay = 1e3) => {
   });
   observer.observe(document, { subtree: true, childList: true });
 };
-var src_default = intiailizePushstateEvent;
+var src_default = initializePushstateEvent;
 export {
   src_default as default
 };
